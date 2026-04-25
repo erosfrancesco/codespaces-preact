@@ -20,4 +20,5 @@ export function App() {
 	);
 }
 
+// @ts-ignore
 render(<App />, document.getElementById('app'));
