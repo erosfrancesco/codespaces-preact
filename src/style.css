@@ -58,7 +58,38 @@ main {
 	text-align: center;
 }
 
+.home-grid {
+	display: grid;
+	width: 100%;
+	max-width: 1280px;
+	margin: 1.5rem auto;
+	gap: 1rem;
+	padding: 0 1rem;
+}
 
+.player-card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1.25rem;
+	border-radius: 1rem;
+	color: #fff;
+	min-height: 180px;
+}
+
+.player-card:nth-child(odd) {
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+.player-card:nth-child(even) {
+	box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 639px) {
+	.home-grid {
+		grid-template-columns: 1fr !important;
+	}
+}
 
 @media (prefers-color-scheme: dark) {
 	:root {

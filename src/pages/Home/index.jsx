@@ -4,13 +4,57 @@ import './style.css';
 
 export function Home() {
 	const { settings } = useAppState();
-	const availableColors = ['red', 'green', 'blue', 'yellow', 'purple', 'orange'];
+	const playerCount = Math.max(1, Math.min(settings.players, 5));
 
-	return (<section className="w-full h-full flex flex-wrap gap-4 p-4">
-		{Array.from({ length: settings.players }, (_, i) => (
-			<div class="w-full h-full" style={{ backgroundColor: availableColors[i % availableColors.length] }}>
-				<Counter key={i} />
-			</div>
-		))}
-	</section>);
+
+	return (
+		<section className="home-grid">
+			{playerCount === 5 && (<>
+				<PlayerCard index={0} orientation="top" />
+				<PlayerCard index={1} orientation="top" />
+				<PlayerCard index={2} orientation="top" />
+				<PlayerCard index={3} orientation="bottom" />
+				<PlayerCard index={4} orientation="bottom" />
+			</>
+			)}
+			{playerCount === 4 && (
+				<>
+					<PlayerCard index={0} orientation="top" />
+					<PlayerCard index={1} orientation="top" />
+					<PlayerCard index={2} orientation="bottom" />
+					<PlayerCard index={3} orientation="bottom" />
+				</>
+			)}
+			{playerCount === 3 && (
+				<>
+					<PlayerCard index={0} orientation="top" />
+					<PlayerCard index={1} orientation="top" />
+					<PlayerCard index={2} orientation="bottom" />
+				</>
+			)}
+			{playerCount === 2 && (
+				<>
+					<PlayerCard index={0} orientation="top" />
+					<PlayerCard index={1} orientation="top" />
+				</>
+			)}
+			{playerCount === 1 && (
+				<PlayerCard index={0} orientation="top" />
+			)}
+		</section>
+	);
+}
+
+// @ts-ignore
+function PlayerCard({ index, orientation = "top" }) {
+	const availableColors = ['red', 'green', 'blue', 'yellow', 'purple', 'orange'];
+	const color = availableColors[index % availableColors.length];
+
+	return (
+		<div className="player-card" style={{ backgroundColor: color }}>
+			<Counter
+				// @ts-ignore
+				orientation={orientation} />
+		</div>
+	);
 }
