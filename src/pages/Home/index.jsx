@@ -8,7 +8,7 @@ export function Home() {
 
 
 	return (
-		<section className="home-grid">
+		<section>
 			{playerCount === 5 && (<>
 				<PlayerCard index={0} orientation="top" />
 				<PlayerCard index={1} orientation="top" />
@@ -18,12 +18,14 @@ export function Home() {
 			</>
 			)}
 			{playerCount === 4 && (
-				<>
+				<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 					<PlayerCard index={0} orientation="top" />
-					<PlayerCard index={1} orientation="top" />
-					<PlayerCard index={2} orientation="bottom" />
+					<div style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
+						<PlayerCard index={1} orientation="left" />
+						<PlayerCard index={2} orientation="right" />
+					</div>
 					<PlayerCard index={3} orientation="bottom" />
-				</>
+				</div>
 			)}
 			{playerCount === 3 && (
 				<>

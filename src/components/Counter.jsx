@@ -9,8 +9,8 @@ export function Counter({ orientation = 'top' }) {
 
     const rotationMap = {
         top: '0deg',
-        bottom: '180deg',
         left: '90deg',
+        bottom: '180deg',
         right: '270deg'
     };
 
