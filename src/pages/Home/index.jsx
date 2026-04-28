@@ -9,13 +9,17 @@ export function Home() {
 
 	return (
 		<section>
-			{playerCount === 5 && (<>
+			{playerCount === 5 && (<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 				<PlayerCard index={0} orientation="top" />
-				<PlayerCard index={1} orientation="top" />
-				<PlayerCard index={2} orientation="top" />
-				<PlayerCard index={3} orientation="bottom" />
-				<PlayerCard index={4} orientation="bottom" />
-			</>
+				<div style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
+					<PlayerCard index={1} orientation="left" />
+					<PlayerCard index={2} orientation="right" />
+				</div>
+				<div style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
+					<PlayerCard index={3} orientation="left" />
+					<PlayerCard index={4} orientation="right" />
+				</div>
+			</div>
 			)}
 			{playerCount === 4 && (
 				<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -47,15 +51,16 @@ export function Home() {
 	);
 }
 
-// @ts-ignore
+/**
+ * @param {{ orientation?: 'top' | 'bottom' | 'left' | 'right'; index: number }} props
+ */
 function PlayerCard({ index, orientation = "top" }) {
-	const availableColors = ['red', 'green', 'blue', 'gold', 'orange', 'purple'];
+	const availableColors = ['crimson', 'green', 'blue', 'gold', 'teal'];
 	const color = availableColors[index % availableColors.length];
 
 	return (
 		<div className="player-card" style={{ backgroundColor: color }}>
 			<Counter
-				// @ts-ignore
 				orientation={orientation}
 				index={index} />
 		</div>
