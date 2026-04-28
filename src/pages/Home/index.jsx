@@ -49,7 +49,7 @@ export function Home() {
 
 // @ts-ignore
 function PlayerCard({ index, orientation = "top" }) {
-	const availableColors = ['red', 'green', 'blue', 'yellow', 'purple', 'orange'];
+	const availableColors = ['red', 'green', 'blue', 'gold', 'orange', 'purple'];
 	const color = availableColors[index % availableColors.length];
 
 	return (

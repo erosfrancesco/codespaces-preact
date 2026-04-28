@@ -13,7 +13,7 @@ import { useContext, useEffect, useState } from 'preact/hooks';
  * }} AppStateContextValue
  */
 
-const AppStateContext = createContext(/** @type {AppStateContextValue | null} */ (null));
+const AppStateContext = createContext(/** @type {AppStateContextValue | null} */(null));
 
 const STORAGE_KEY = 'codespaces-preact-settings';
 
@@ -48,14 +48,14 @@ export function AppStateProvider({ children }) {
 	const [settings, setSettings] = useState(getInitialSettings);
 
 	const resetCounters = () => {
-		setSettings((prev) => ({
+		setSettings((/** @type {any} */ prev) => ({
 			...prev,
 			counters: [0, 0, 0, 0, 0]
 		}));
 	};
 
-	const setAllCounters = (value) => {
-		setSettings((prev) => ({
+	const setAllCounters = (/** @type {any} */ value) => {
+		setSettings((/** @type {{ counters: any[]; }} */ prev) => ({
 			...prev,
 			counters: prev.counters.map(() => value)
 		}));

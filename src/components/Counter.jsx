@@ -8,7 +8,7 @@ export function Counter({ orientation = 'top', index }) {
     const { settings, setSettings } = useAppState();
     const count = settings.counters[index] || 0;
 
-    const updateCount = (newCount) => {
+    const updateCount = (/** @type {number} */ newCount) => {
         setSettings((prev) => ({
             ...prev,
             counters: prev.counters.map((c, i) => i === index ? newCount : c)
