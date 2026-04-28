@@ -1,4 +1,3 @@
-import preactLogo from '../../assets/preact.svg';
 import { Counter } from '../../components/Counter';
 import './style.css';
 
