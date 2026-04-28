@@ -1,6 +1,8 @@
 import { useAppState } from '../hooks/useAppState.jsx';
 import Dialog from './Dialog';
 
+import './Header.css';
+
 export function Header() {
 	const { settingsOpen, setSettingsOpen, settings, setSettings } = useAppState();
 
