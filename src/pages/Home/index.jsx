@@ -32,11 +32,13 @@ export function Home() {
 				</div>
 			)}
 			{playerCount === 3 && (
-				<>
-					<PlayerCard index={0} orientation="top" />
-					<PlayerCard index={1} orientation="top" />
-					<PlayerCard index={2} orientation="bottom" />
-				</>
+				<div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+					<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+						<PlayerCard index={0} orientation="top" />
+						<PlayerCard index={1} orientation="bottom" />
+					</div>
+					<PlayerCard index={2} orientation="left" />
+				</div>
 			)}
 			{playerCount === 2 && (
 				<>

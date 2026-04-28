@@ -64,7 +64,7 @@ main {
 	align-items: center;
 	justify-content: center;
 	padding: 1.25rem;
-	border-radius: 1rem;
+	border: #0f1115 solid 1px;
 	color: #fff;
 	min-height: 180px;
 }
