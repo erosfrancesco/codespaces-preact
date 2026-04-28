@@ -1,11 +1,19 @@
-import { useState } from 'preact/hooks';
+import { useAppState } from '../hooks/useAppState.jsx';
 import './Counter.css';
 
 /**
- * @param {{ orientation?: 'top' | 'bottom' | 'left' | 'right' }} props
+ * @param {{ orientation?: 'top' | 'bottom' | 'left' | 'right'; index: number }} props
  */
-export function Counter({ orientation = 'top' }) {
-    const [count, setCount] = useState(0);
+export function Counter({ orientation = 'top', index }) {
+    const { settings, setSettings } = useAppState();
+    const count = settings.counters[index] || 0;
+
+    const updateCount = (newCount) => {
+        setSettings((prev) => ({
+            ...prev,
+            counters: prev.counters.map((c, i) => i === index ? newCount : c)
+        }));
+    };
 
     const rotationMap = {
         top: '0deg',
@@ -18,9 +26,9 @@ export function Counter({ orientation = 'top' }) {
 
     return (
         <div class="counter" style={{ transform: `rotate(${rotation})` }}>
-            <button onClick={() => setCount(count - 1)}>-</button>
+            <button onClick={() => updateCount(count - 1)}>-</button>
             <h1>{count}</h1>
-            <button onClick={() => setCount(count + 1)}>+</button>
+            <button onClick={() => updateCount(count + 1)}>+</button>
         </div>
     );
 }

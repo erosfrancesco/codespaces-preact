@@ -56,7 +56,8 @@ function PlayerCard({ index, orientation = "top" }) {
 		<div className="player-card" style={{ backgroundColor: color }}>
 			<Counter
 				// @ts-ignore
-				orientation={orientation} />
+				orientation={orientation}
+				index={index} />
 		</div>
 	);
 }

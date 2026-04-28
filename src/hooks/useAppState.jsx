@@ -2,12 +2,14 @@ import { createContext } from 'preact';
 import { useContext, useEffect, useState } from 'preact/hooks';
 
 /**
- * @typedef {{ players: number; darkMode: boolean }} Settings
+ * @typedef {{ players: number; darkMode: boolean; counters: number[]; setAllValue: number }} Settings
  * @typedef {{
  *   settingsOpen: boolean;
  *   setSettingsOpen: import('preact/hooks').Dispatch<import('preact/hooks').StateUpdater<boolean>>;
  *   settings: Settings;
  *   setSettings: import('preact/hooks').Dispatch<import('preact/hooks').StateUpdater<Settings>>;
+ *   resetCounters: () => void;
+ *   setAllCounters: (value: number) => void;
  * }} AppStateContextValue
  */
 
@@ -17,25 +19,47 @@ const STORAGE_KEY = 'codespaces-preact-settings';
 
 function getInitialSettings() {
 	if (typeof window === 'undefined') {
-		return { players: 2, darkMode: false };
+		return { players: 2, darkMode: false, counters: [0, 0, 0, 0, 0], setAllValue: 0 };
 	}
 
 	try {
 		const stored = window.localStorage.getItem(STORAGE_KEY);
 		if (stored) {
-			return JSON.parse(stored);
+			const parsed = JSON.parse(stored);
+			// Ensure counters array exists and has correct length
+			if (!parsed.counters || !Array.isArray(parsed.counters)) {
+				parsed.counters = [0, 0, 0, 0, 0];
+			}
+			if (parsed.counters.length !== 5) {
+				parsed.counters = [0, 0, 0, 0, 0];
+			}
+			return parsed;
 		}
 	} catch (error) {
 		console.warn('Failed to read app settings from storage:', error);
 	}
 
-	return { players: 2, darkMode: false };
+	return { players: 2, darkMode: false, counters: [0, 0, 0, 0, 0], setAllValue: 0 };
 }
 
 /** @param {{ children: import('preact').ComponentChildren }} props */
 export function AppStateProvider({ children }) {
 	const [settingsOpen, setSettingsOpen] = useState(false);
 	const [settings, setSettings] = useState(getInitialSettings);
+
+	const resetCounters = () => {
+		setSettings((prev) => ({
+			...prev,
+			counters: [0, 0, 0, 0, 0]
+		}));
+	};
+
+	const setAllCounters = (value) => {
+		setSettings((prev) => ({
+			...prev,
+			counters: prev.counters.map(() => value)
+		}));
+	};
 
 	useEffect(() => {
 		if (typeof window === 'undefined') {
@@ -53,6 +77,8 @@ export function AppStateProvider({ children }) {
 				setSettingsOpen,
 				settings,
 				setSettings,
+				resetCounters,
+				setAllCounters,
 			}}
 		>
 			{children}
