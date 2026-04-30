@@ -25,6 +25,7 @@ export function Header() {
 					<label>
 						Players:
 						<input
+							className="input"
 							type="number"
 							step="1"
 							min="1"
@@ -40,6 +41,7 @@ export function Header() {
 					</label>
 					<label>
 						<input
+							className="input"
 							type="checkbox"
 							checked={settings.darkMode}
 							onChange={(event) =>
@@ -53,9 +55,12 @@ export function Header() {
 					</label>
 					<div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid #e8e8ef' }}>
 						<h3 style={{ margin: '0 0 1rem 0', fontSize: '1rem' }}>Counter Controls</h3>
-						<label>
-							Set all counters to:
+						<div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+							<label>
+								Set all counters to:
+							</label>
 							<input
+								className="input"
 								type="number"
 								step="1"
 								min="-999"
@@ -67,21 +72,18 @@ export function Header() {
 										setAllValue: Number(event.currentTarget.value) || 0,
 									})
 								}
-								style={{ marginLeft: '0.5rem', width: '80px' }}
 							/>
 							<button
+								className="button-primary"
 								type="button"
 								onClick={() => setAllCounters(settings.setAllValue)}
-								style={{ marginLeft: '0.5rem', padding: '0.25rem 0.75rem' }}
 							>
 								Set All
 							</button>
-						</label>
-						<div style={{ marginTop: '1rem' }}>
 							<button
+								className="button-danger"
 								type="button"
 								onClick={resetCounters}
-								style={{ padding: '0.5rem 1rem', backgroundColor: '#f44336', color: 'white', border: 'none', borderRadius: '4px' }}
 							>
 								Reset All Counters
 							</button>

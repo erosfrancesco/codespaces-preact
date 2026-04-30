@@ -1,10 +1,12 @@
+@import url('./theme.css');
+
 :root {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
 
-	color: #222;
-	background-color: #ffffff;
+	color: var(--text-color);
+	background-color: var(--bg-color);
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -15,11 +17,6 @@
 
 body {
 	margin: 0;
-}
-
-body.dark-mode {
-	background-color: #0f1115;
-	color: #e5e7eb;
 }
 
 main {
@@ -52,8 +49,8 @@ main {
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		color: #ccc;
-		background-color: #1a1a1a;
+		color: var(--text-color-dark);
+		background-color: var(--bg-color-dark);
 	}
 }
 

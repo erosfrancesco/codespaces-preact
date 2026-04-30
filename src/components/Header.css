@@ -1,11 +1,14 @@
+@import url('../theme.css');
+
+
 header {
     display: flex;
     justify-content: flex-end;
-    background-color: #673ab8;
+    background-color: var(--bg-primary);
 }
 
 body.dark-mode header {
-	background-color: #512da8;
+    background-color: var(--bg-primary-dark);
 }
 
 .fab-settings {
@@ -16,7 +19,7 @@ body.dark-mode header {
     height: 3.5rem;
     border-radius: 50%;
     border: none;
-    background: #673ab8;
+    background: var(--bg-primary);
     color: #fff;
     font-size: 1.4rem;
     cursor: pointer;
@@ -26,17 +29,18 @@ body.dark-mode header {
     justify-content: center;
     transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
     z-index: 10;
+    outline: none;
 }
 
 .fab-settings:hover,
 .fab-settings:focus {
     transform: translateY(-2px);
-    background: #7e57c2;
+    background: var(--bg-primary-hover);
     outline: none;
 }
 
 .fab-settings:focus-visible {
-    box-shadow: 0 0 0 3px rgba(103, 58, 183, 0.35);
+    box-shadow: 0 0 0 3px var(--bg-primary-hover);
 }
 
 

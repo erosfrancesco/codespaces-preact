@@ -1,0 +1,53 @@
+:root {
+    --bg-color: #eee;
+    --bg-color-dark: #1a1a1a;
+
+    --text-color: #222;
+    --text-color-dark: #ccc;
+
+    --bg-primary: #673ab8;
+    --bg-primary-dark: #512da8;
+    --bg-primary-hover: #7e57c2;
+    --bg-primary-hover-dark: #7e57c2;
+
+    --text-primary: #fff;
+    --text-primary-dark: #fff;
+}
+
+.button-danger {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.button-primary {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.input {
+    padding: 0.4rem;
+    border: 0.1rem solid #222;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: transparent;
+    color: var(---text-color);
+    max-width: none;
+    min-width: none;
+}
+
+body.dark-mode .input {
+    padding: 0.4rem;
+    border: 0.1rem solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
