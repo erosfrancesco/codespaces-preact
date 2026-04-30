@@ -26,9 +26,9 @@ export function Counter({ orientation = 'top', index }) {
 
     return (
         <div class="counter" style={{ transform: `rotate(${rotation})` }}>
-            <button onClick={() => updateCount(count - 1)}>-</button>
+            <button onClick={() => updateCount(count - 1)} style={{ paddingBottom: '0.4rem' }}>-</button>
             <h1>{count}</h1>
-            <button onClick={() => updateCount(count + 1)}>+</button>
+            <button onClick={() => updateCount(count + 1)} style={{ paddingTop: '0.2rem', paddingBottom: '0.2rem' }}>+</button>
         </div>
     );
 }

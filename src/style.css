@@ -22,33 +22,6 @@ body.dark-mode {
 	color: #e5e7eb;
 }
 
-body.dark-mode header {
-	background-color: #512da8;
-}
-
-body.dark-mode .dialog {
-	background: #1f1f2b;
-	color: #f3f4f6;
-	border-color: rgba(255, 255, 255, 0.08);
-}
-
-body.dark-mode .dialog-header {
-	border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-
-body.dark-mode .dialog-close {
-	color: #f3f4f6;
-}
-
-body.dark-mode .dialog-actions button {
-	background: #4527a0;
-}
-
-body.dark-mode .dialog-actions button:hover,
-body.dark-mode .dialog-actions button:focus {
-	background: #5e35b1;
-}
-
 main {
 	flex: auto;
 	display: flex;

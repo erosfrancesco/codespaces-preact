@@ -4,6 +4,10 @@ header {
     background-color: #673ab8;
 }
 
+body.dark-mode header {
+	background-color: #512da8;
+}
+
 .fab-settings {
     position: fixed;
     right: 1.5rem;
